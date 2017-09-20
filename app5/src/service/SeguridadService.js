@@ -11,8 +11,12 @@ class SeguridadService {
     };
 
     getUsuarios() {
-        return axios.get(config.urlBase + 'users').then(res => res).catch(err => err);
-    }
+        return axios.get(config.urlBase + 'seguridad/usuario/findAll').then(res => res.data).catch(err => err);
+    };
+
+    getRoles() {
+        return axios.get(config.urlBase + 'seguridad/rol/findAll').then(res => res.data).catch(err => err);
+    };
 }
 
 export default new SeguridadService();

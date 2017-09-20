@@ -1,32 +1,26 @@
 <template>
-  <div class="hello">
-    <h1>{{ getMensaje }}</h1>
+  <div class="mc-app-usuario">
     <input type="button" value="Obtener Usuarios" v-on:click="getUsuarios()" />
     <ul>
       <li v-for="usu in usuarios">
-        {{usu.firstname}}
+        {{usu.usuaCodigo}}
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import SeguridadService from '../service/SeguridadService'
+import SeguridadService from '@/service/SeguridadService'
 export default {
-  name: 'hello',
+  name: 'mc-app-usuario',
   data() {
     return {
       usuarios: {}
     }
   },
-  computed: {
-    getMensaje: function() {
-      return 'Autorización: ' + this.$session.get('jwt')
-    }
-  },
   methods: {
     getUsuarios: function() {
-      SeguridadService.getUsuarios().then(res => { this.usuarios = res.data.users }).catch(err => alert(err));
+      SeguridadService.getUsuarios().then(res => { return this.usuarios = res; }).catch(err => alert(err));
     }
   }
 }

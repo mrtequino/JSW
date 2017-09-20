@@ -1,13 +1,14 @@
 <template>
   <div id="app" class="container">
-    <nav class='navbar navbar-default'>
+    <h4>Módulo de Administración de Seguridades</h4>
+    <nav class='navbar navbar-default' v-if="hasSession()==true">
       <div class='container'>
         <ul class='nav navbar-nav'>
           <li>
-            <router-link :to="{ path: '/' }">Inicio</router-link>
+            <router-link :to="{ path: 'usuario' }" v-if="hasRole('ROLE_1')==true">Usuario</router-link>
           </li>
           <li>
-            <router-link :to="{ path: 'hello' }">Hello</router-link>
+            <router-link :to="{ path: 'rol' }" v-if="hasRole('ROLE_2')==true">Rol</router-link>
           </li>
           <li>
             <a href="#" v-if="isLogeado()==true" @click="logout($event)">Logout</a>
@@ -15,9 +16,13 @@
         </ul>
       </div>
     </nav>
-    <router-view></router-view>
-
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <router-view></router-view>
+      </div>
+    </div>
     <img id="mc-app-img-logo" src="./assets/logo.png">
+
   </div>
 </template>
 
@@ -26,10 +31,13 @@
 import axios from 'axios'
 
 export default {
-  name: 'app',
+  name: 'mc-app',
   beforeCreate: function() {
     if (!this.$session.exists()) {
       this.$router.push('/')
+    } else {
+      this.$router.push('/inicio')
+      axios.defaults.headers.common['Authorization'] = this.$session.get("jwt");
     }
   },
   computed: {
@@ -42,6 +50,24 @@ export default {
       } else {
         return false;
       }
+    },
+    hasRole: function(rol) {
+      if (this.$session.exists()) {
+        let roles = JSON.parse(this.$session.get('roles'));
+        for (let r of roles) {
+          if (r.rol == rol) {
+            return true;
+            break;
+          }
+        }
+        return false;
+      }
+    },
+    hasSession: function() {
+      if (this.$session.exists()) {
+        return true;
+      }
+      return false;
     },
     logout: function(event) {
       this.$session.destroy();
@@ -66,5 +92,15 @@ export default {
 #mc-app-img-logo {
   width: 50px;
   height: 50px;
+}
+
+a {
+  color: black!important;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+h4 {
+  color: orange;
 }
 </style>
