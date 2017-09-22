@@ -1,11 +1,33 @@
 <div>
-
-  <button type="button" class="btn btn-primary" (click)="getUsuarios()">Consultar Usuarios</button>
-  <br/>
   <ul>
     <li *ngFor="let usu of usuarios">
-      <input type="button" value="..." (click)="onUsuarioSeleccionar(usu)" /> {{usu.usuaUsuario}} - {{usu.usuaEstado}}
+      <input type="button" value="X" (click)="onEliminar(usu)" /> {{usu.usuaUsuario}} - {{usu.usuaEstado}}
     </li>
-
   </ul>
+
+  <div>
+    <div class="form-group">
+      <label for="app-usuario-codigo-1">Código:</label>
+      <input id="app-usuario-codigo-1" class="form-control" type="text" placeholder="ingrese el código de usuario" [(ngModel)]="usuario.usuaCodigo"
+      />
+    </div>
+    <div class="form-group">
+      <label for="app-usuario-usuario-1">Usuario:</label>
+      <input id="app-usuario-usuario-1" class="form-control" type="text" placeholder="ingrese el nombre de usuario" [(ngModel)]="usuario.usuaUsuario"
+      />
+    </div>
+    <div class="form-group">
+      <label for="app-usuario-clave-1">Clave:</label>
+      <input id="app-usuario-clave-1" class="form-control" type="password" placeholder="ingrese la clave de usuario" [(ngModel)]="usuario.usuaClave"
+      />
+    </div>
+    <div class="form-group">
+      <label for="app-usuario-estado-1">Estado:</label>
+      <select id="app-usuario-estado-1" class="form-control" placeholder="Seleccione el estado" [(ngModel)]="usuario.usuaEstado">
+          <option value="ACTIVO">ACTIVO</option>
+          <option value="INACTIVO">INACTIVO</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onCrear()">Crear Usuario</button>
+  </div>
 </div>

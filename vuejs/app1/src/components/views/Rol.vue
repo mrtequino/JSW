@@ -20,7 +20,7 @@ export default {
     },
     methods: {
         getRoles: function() {
-            SeguridadService.getRoles().then(res => { return this.roles = res; }).catch(err => alert(err));
+            SeguridadService.rolFindAll().then(res => { return this.roles = res; }).catch(err => alert(err));
         }
     }
 }

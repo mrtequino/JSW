@@ -31,11 +31,19 @@ export class SeguridadService implements OnInit {
       .catch(this.handleError);
   }
 
-  getUsuarios(): Promise<Usuario[]> {
+  usuarioFindAll(): Promise<Usuario[]> {
     return this.http.get(Configuracion.urlUsuarioFindAll)
       .toPromise()
       .then(response => response.json())
       .catch(this.handleError);
+  }
+
+  usuarioCreate(usuario: Usuario): Observable<Usuario[]> {
+    return this.http.post(Configuracion.urlUsuarioCreate, usuario).map(res => res.json());
+  }
+
+  usuarioDelete(usuario: Usuario): Observable<Usuario[]> {
+    return this.http.post(Configuracion.urlUsuarioDelete, usuario).map(res => res.json());
   }
 
   private handleError(error: any): Promise<any> {
