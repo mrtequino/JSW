@@ -1,0 +1,9 @@
+h4{
+    color: orange;
+    font-weight: bold;
+}
+
+.mc-app-logout{
+    cursor:pointer;
+    color: red!important;
+}

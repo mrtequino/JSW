@@ -1,0 +1,11 @@
+<div>
+
+  <button type="button" class="btn btn-primary" (click)="getRoles()">Consultar Roles</button>
+  <br/>
+  <ul>
+    <li *ngFor="let rol of roles">
+      <input type="button" value="..." (click)="onRolSeleccionar(rol)" /> {{rol.roleRol}} - {{rol.roleDescripcion}}
+    </li>
+
+  </ul>
+</div>

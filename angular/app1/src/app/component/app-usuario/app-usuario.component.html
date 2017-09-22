@@ -1,0 +1,11 @@
+<div>
+
+  <button type="button" class="btn btn-primary" (click)="getUsuarios()">Consultar Usuarios</button>
+  <br/>
+  <ul>
+    <li *ngFor="let usu of usuarios">
+      <input type="button" value="..." (click)="onUsuarioSeleccionar(usu)" /> {{usu.usuaUsuario}} - {{usu.usuaEstado}}
+    </li>
+
+  </ul>
+</div>
