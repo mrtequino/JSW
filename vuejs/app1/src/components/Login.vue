@@ -9,22 +9,31 @@
             <input id="mc-inicio-input-password-1" class="form-control" type="password" v-model="clave" placeholder="Ingrese su clave" />
         </div>
         <input class="btn btn-primary" type="button" value="Ingresar" v-on:click="onIngresar()" />
+        <arbol></arbol>
     </div>
 </template>
 
 <script>
 import axios from 'axios'
-import decode from 'jwt-decode';
+import decode from 'jwt-decode'
+import Arbol from './views/Arbol'
 
 import SeguridadService from '../service/SeguridadService'
 
 export default {
     name: "mc-app-login",
+    components: {
+        Arbol
+    },
     data() {
         return {
             titulo: "",
             usuario: "",
-            clave: ""
+            clave: "",
+            jsonSource: [
+                { "nombre": "dpeniafiel", "apellido": "Peñafiel" },
+                { "nombre": "cjimenez", "apellido": "Jimenez" }
+            ]
         }
     },
     methods: {
