@@ -1,0 +1,12 @@
+button{
+    padding: 10px;
+    background-color: #61B2FD;
+    color: white;
+}
+
+button:hover{
+    padding: 10px;
+    background-color: dodgerblue;
+    font-weight: bold;
+    color: white;
+}

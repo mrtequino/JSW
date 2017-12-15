@@ -12,6 +12,14 @@ import { SeguridadService } from "../../service/seguridad.service";
 })
 export class AppLoginComponent implements OnInit {
 
+  date1: Date;
+
+  display: boolean = false;
+
+  showDialog() {
+    this.display = true;
+  }
+
   usuario: Usuario;
 
   constructor(private router: Router, private service: SeguridadService) { }

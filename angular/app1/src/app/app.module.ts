@@ -14,6 +14,11 @@ import { AppLoginComponent } from './component/app-login/app-login.component';
 import { AppUsuarioComponent } from './component/app-usuario/app-usuario.component';
 import { AppRolComponent } from './component/app-rol/app-rol.component';
 
+//componentes Prime NG
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'primeng/primeng';
+import {DialogModule} from 'primeng/primeng';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,9 +29,12 @@ import { AppRolComponent } from './component/app-rol/app-rol.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    CalendarModule,
+    DialogModule
   ],
   providers: [SeguridadService, { provide: Http, useFactory: httpFactory, deps: [XHRBackend, RequestOptions] }],
   bootstrap: [AppComponent]

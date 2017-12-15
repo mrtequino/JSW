@@ -1,0 +1,21 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+</div>
+<div>
+  <ul>
+    <li *ngFor="let post of posts">
+      <span>{{post.id}} {{post.body}}</span>
+    </li>
+  </ul>
+</div>
+<div>
+  <ul>
+    <li *ngFor="let mes of messageService.messages">
+      <span>{{mes}}</span>
+    </li>
+  </ul>
+  <button (click)="onBorrar()">Limpiar mensajes</button>
+</div>

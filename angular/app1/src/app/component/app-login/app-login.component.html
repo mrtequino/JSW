@@ -9,3 +9,13 @@
   />
 </div>
 <button type="submit" class="btn btn-primary" (click)="onIngresar()">Ingresar</button>
+
+
+<h3>Basic</h3>
+<p-calendar [(ngModel)]="date1"></p-calendar> {{date1|date}}
+
+<p-dialog header="Title" [(visible)]="display" modal="true">
+  Content
+</p-dialog>
+
+<button type="text" (click)="showDialog()" pButton icon="fa-external-link-square" label="Show"></button>
