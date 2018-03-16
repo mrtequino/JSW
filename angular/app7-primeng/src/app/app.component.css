@@ -1,0 +1,56 @@
+.contenedor-principal {
+    background-color: white;
+    box-shadow: 5px 5px 5px gray;
+    border-radius: 3px;
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 1px silver;
+}
+
+.titulo {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.menu {
+    height: 80%;
+    overflow: auto;
+}
+
+.header {
+    box-shadow: 3px 3px 3px gray;
+    font-weight: bold;
+    border-radius: 3px;
+    padding: 10px;
+    background-color: rgb(198, 232, 255);
+}
+
+.boton-visible {
+    display: block;
+    visibility: visible;
+}
+
+.menu-visible {
+    display: none;
+    visibility: hidden;
+}
+
+@media screen and (min-width: 1026px) {
+    .boton-visible {
+        display: none;
+        visibility: hidden;
+    }
+    .menu-visible {
+        display: block;
+        visibility: visible;
+    }
+    .titulo {
+        font-size: 2.0rem;
+        font-weight: bold;
+        background-color: #1C84D8;
+        color: white;
+        padding: 5px;
+        border-radius: 3px;
+    }
+}

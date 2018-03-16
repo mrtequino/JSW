@@ -1,0 +1,201 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+[class*="col-"] {
+    float: left;
+    padding: 5px;
+}
+/* For mobile phones: */
+@media only screen and (min-width: 0px) and (max-width: 599px) {
+  [class*="col-"] {
+      width: 100%;
+  }
+
+  html{font-size: 1.25rem;}
+}
+
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+    /* For tablets: */
+    .col-m-1 {width: 8.33%;}
+    .col-m-2 {width: 16.66%;}
+    .col-m-3 {width: 25%;}
+    .col-m-4 {width: 33.33%;}
+    .col-m-5 {width: 41.66%;}
+    .col-m-6 {width: 50%;}
+    .col-m-7 {width: 58.33%;}
+    .col-m-8 {width: 66.66%;}
+    .col-m-9 {width: 75%;}
+    .col-m-10 {width: 83.33%;}
+    .col-m-11 {width: 91.66%;}
+    .col-m-12 {width: 100%;}
+
+    html{font-size: 1rem;}
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+
+    html{font-size: 0.75rem;}
+}
+
+html{
+  font-family: "Comic Sans MS";
+  color: #4f4f4f;
+}
+
+span{
+}
+
+.input-texto{
+  width: 100%;
+  padding: 5px 5px;
+  box-shadow: 1.5px 3px #888888;
+  border: solid 1px silver;
+  border-radius: 5px;
+}
+
+button{
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid white;
+  color: white;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+50,207cca+51,7db9e8+100;Blue+Gloss+Default */
+background: #1e5799; /* Old browsers */
+background: -moz-linear-gradient(top, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+}
+
+button:hover{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e4f5fc+0,bfe8f9+50,9fd8ef+51,2ab0ed+100;Blue+Gloss+%235 */
+background: #e4f5fc; /* Old browsers */
+background: -moz-linear-gradient(top, #e4f5fc 0%, #bfe8f9 50%, #9fd8ef 51%, #2ab0ed 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #e4f5fc 0%,#bfe8f9 50%,#9fd8ef 51%,#2ab0ed 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #e4f5fc 0%,#bfe8f9 50%,#9fd8ef 51%,#2ab0ed 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', endColorstr='#2ab0ed',GradientType=0 ); /* IE6-9 */
+  color: white;
+}
+
+button:active{
+  background-color: white;
+  color: dodgerblue;
+  border: 1px solid dodgerblue;
+}
+
+.app-div-contenedor{
+  border-radius: 5px;
+  background-color: white;
+  border: solid silver 1px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  box-shadow: 5px 10px #888888;
+  padding: 20px;
+}
+
+body{
+  background-color: white;
+}
+
+<!-- configuración de diálogos de  -->
+body {
+  font-family: Arial, sans-serif;
+	background: #ddd;
+}
+
+h1 {
+	text-align: center;
+	font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+	color: #333;
+	text-shadow: 0 1px 0 #fff;
+	margin: 50px 0;
+}
+
+#wrapper {
+	width: 100px;
+	margin: 0 auto;
+	background: #fff;
+	padding: 20px;
+	border: 10px solid #aaa;
+	border-radius: 15px;
+	background-clip: padding-box;
+	text-align: center;
+}
+
+.button {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	padding: 5px 10px;
+	border: 1px solid #aaa;
+	background-color: #eee;
+	background-image: linear-gradient(top, #fff, #f0f0f0);
+	border-radius: 2px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+	color: #666;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #fff;
+	cursor: pointer;
+	transition: all 0.2s ease-out;
+  &:hover {
+    border-color: #999;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  }
+  &:active {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25) inset;
+  }
+}
+
+.overlay {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: rgba(0,0,0,0.5);
+	transition: opacity 200ms;
+  visibility: visible;
+	opacity: 1;
+}
+
+.popup {
+	margin: 75px auto;
+	padding: 20px;
+	background: #fff;
+	border: 1px solid #666;
+	width: auto;
+  margin-left: 100px;
+  margin-right: 100px;
+	box-shadow: 0 0 50px rgba(0,0,0,0.5);
+	position: relative;
+  .content {
+    max-height: 400px;
+    overflow: auto;
+  }
+  p {
+    margin: 0 0 1em;
+    &:last-child {
+      margin: 0;
+    }
+  }
+}

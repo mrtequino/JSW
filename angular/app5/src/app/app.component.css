@@ -1,0 +1,30 @@
+ul {
+    list-style-type: none
+}
+
+table {
+    border-width: 10px;
+    border-color: silver;
+    border-style: dotted;
+}
+
+td {
+    width: 300px;
+    vertical-align: top;
+    text-align: center;
+    border-radius: 5px;
+    border: solid black 1px;
+}
+
+li li:hover {
+    background-color: orange;
+    color: white;
+}
+
+.titulo {
+    background-color: dodgerblue;
+}
+
+.contenido {
+    background-color: white;
+}

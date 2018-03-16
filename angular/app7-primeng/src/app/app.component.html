@@ -1,0 +1,78 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- panel de navegación -->
+<div class="contenedor-principal">
+  <p-sidebar [(visible)]="display" blockScroll="true">
+    <h2>Menú de Navegación</h2>
+    <div class="menu">
+      <p-panelMenu [model]="items"></p-panelMenu>
+    </div>
+  </p-sidebar>
+
+  <!-- layout visible -->
+  <div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-g-nopad">
+      <button class="titulo, boton-visible" type="text" (click)="display = true" pButton icon="fa-bars" label="{{title}}"></button>
+      <div class="menu-visible">
+        <div class="titulo">
+            {{title}}
+        </div>
+      <p-menubar [model]="items"></p-menubar>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-md-12 ui-lg-3 ui-xl-2">
+      <div class="header">
+        <span>Calendar:</span>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-md-10 ui-lg-6 ui-xl-2">
+      <p-calendar [(ngModel)]="value" date-format="dd/MM/yyyy" [showIcon]="true" [readonlyInput]="true"></p-calendar>
+    </div>
+    <div class="ui-g-12 ui-md-2 ui-lg-3 ui-xl-2">
+      <span>{{value ? (value|date) : ''}}</span>
+    </div>
+    <div class="ui-g-12 ui-md-12 ui-lg-3 ui-xl-2">
+      <div class="header">
+        <span>InputText:</span>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-md-10 ui-lg-6 ui-xl-2">
+      <input type="text" pInputText [(ngModel)]="inputTextValue">
+    </div>
+    <div class="ui-g-12 ui-md-2 ui-lg-3 ui-xl-2">
+      <span>{{inputTextValue ? inputTextValue : ''}}</span>
+    </div>
+    <div class="ui-g-12 ui-md-12 ui-lg-3 ui-xl-2">
+      <div class="header">
+        <span>InputTextArea:</span>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-md-10 ui-lg-6 ui-xl-2">
+      <textarea pInputTextarea [(ngModel)]="inputTextAreaValue"></textarea>
+    </div>
+    <div class="ui-g-12 ui-md-2 ui-lg-3 ui-xl-2">
+      <span>{{inputTextAreaValue ? inputTextAreaValue : ''}}</span>
+    </div>
+    <div class="ui-g-12 ui-md-12 ui-lg-3 ui-xl-2">
+      <div class="header">
+        <span>DropDown:</span>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-md-10 ui-lg-6 ui-xl-2">
+      <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Select a City" optionLabel="name" [autoWidth]="false"></p-dropdown>
+    </div>
+    <div class="ui-g-12 ui-md-2 ui-lg-3 ui-xl-2">
+      <span>{{selectedCity ? selectedCity.name : ''}}</span>
+    </div>
+    <div class="ui-g-12 ui-md-12 ui-lg-3 ui-xl-2">
+      <div class="header">
+        <span>Checked Boolean:</span>
+      </div>
+    </div>
+    <div class="ui-g-12 ui-md-10 ui-lg-6 ui-xl-2">
+      <p-checkbox [(ngModel)]="checked" binary="true"></p-checkbox>
+    </div>
+    <div class="ui-g-12 ui-md-2 ui-lg-3 ui-xl-2">
+      <span>{{checked}}</span>
+    </div>
+  </div>
+</div>
