@@ -30,6 +30,8 @@ export class AppComponent {
 
   items: MenuItem[];
 
+  prueba: String;
+
   constructor() {
     this.cities = [
       { name: 'New York', code: 'NY' },
