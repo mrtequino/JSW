@@ -1,0 +1,18 @@
+.logo {
+  background: url("/assets/images/LOGO.jpg");
+  background-repeat: no-repeat;
+  background-size: 200px 100px;
+  width: 200px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cursor-seleccion {
+  cursor: pointer;
+}
+
+.cursor-seleccion:hover {
+  color: black;
+  font-weight: bold;
+}

@@ -1,0 +1,57 @@
+<div class="w3-container w3-black">
+  <h1 class="tq-h1-font-size">TQ POS (Sistema punto de venta)</h1>
+</div>
+
+<div class="w3-panel">
+  <div class="w3-row">
+    <div class="w3-col l12">
+      <label class="w3-text-black">Usuario:</label>
+    </div>
+    <div class="w3-col l12">
+      <input type="text" class="w3-input tq-input-text-font-size" [(ngModel)]="username">
+    </div>
+  </div>
+  <br/>
+  <div class="w3-row">
+    <div class="w3-col l12">
+      <label class="w3-text-black">Clave:</label>
+    </div>
+    <div class="w3-col l12">
+      <input type="password" class="w3-input tq-input-text-font-size" [(ngModel)]="password">
+    </div>
+  </div>
+  <br/>
+  <div class="w3-row">
+    <div class="w3-col l12">
+      <input type="button" value="Ingresar" class="w3-button w3-blue w3-block w3-round" (click)="onIngresar()" />
+    </div>
+  </div>
+  <br/>
+  <br/>
+  <div class="w3-row-padding">
+    <div class="w3-col l2">
+      <input type="button" value="Consultar doble subscripción" class="w3-button w3-blue w3-block w3-round" (click)="onConsultar()" />
+    </div>
+    <div class="w3-col l2">
+      <input type="button" value="Consultar una subscripcion" class="w3-button w3-blue w3-block w3-round" (click)="onConsultarObservable()" />
+    </div>
+    <div class="w3-col l2">
+        <input type="button" value="Consultar obs con variable" class="w3-button w3-blue w3-block w3-round" (click)="onConsultarObservableConVariable()"
+        />
+    </div>
+    <div class="w3-col l2">
+      <input type="button" value="Consultar promesa" class="w3-button w3-blue w3-block w3-round" (click)="onConsultarPromise()"
+      />
+    </div>
+  </div>
+</div>
+
+<div>
+  <ul>
+    <li *ngFor="let a of usuarios">{{a.usuaUserName}}</li>
+  </ul>
+</div>
+
+<div class="w3-container w3-blue-gray w3-display-bottommiddle">
+  <h3 class="w3-text-white tq-h3-font-size">Versión 1.0</h3>
+</div>
