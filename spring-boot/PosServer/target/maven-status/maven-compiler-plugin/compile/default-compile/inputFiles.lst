@@ -1,0 +1,13 @@
+C:\DESARROLLO\JAVA\CODIGO\PosServer\src\main\java\com\ltg\posserver\security\TokeAuthenticationService.java
+C:\DESARROLLO\JAVA\CODIGO\PosServer\src\main\java\com\ltg\posserver\repository\jpa\model\SeguUsuaRole.java
+C:\DESARROLLO\JAVA\CODIGO\PosServer\src\main\java\com\ltg\posserver\repository\jpa\model\SeguRoles.java
+C:\DESARROLLO\JAVA\CODIGO\PosServer\src\main\java\com\ltg\posserver\repository\jpa\SeguUsuaRoleRepository.java
+C:\DESARROLLO\JAVA\CODIGO\PosServer\src\main\java\com\ltg\posserver\security\JWTAuthenticationFilter.java
+C:\DESARROLLO\JAVA\CODIGO\PosServer\src\main\java\com\ltg\posserver\repository\jpa\SeguRolesRepository.java
+C:\DESARROLLO\JAVA\CODIGO\PosServer\src\main\java\com\ltg\posserver\PosServerApplication.java
+C:\DESARROLLO\JAVA\CODIGO\PosServer\src\main\java\com\ltg\posserver\security\AccountCredentials.java
+C:\DESARROLLO\JAVA\CODIGO\PosServer\src\main\java\com\ltg\posserver\security\AccountRoles.java
+C:\DESARROLLO\JAVA\CODIGO\PosServer\src\main\java\com\ltg\posserver\security\JWTLoginFilter.java
+C:\DESARROLLO\JAVA\CODIGO\PosServer\src\main\java\com\ltg\posserver\repository\jpa\model\SeguUsuario.java
+C:\DESARROLLO\JAVA\CODIGO\PosServer\src\main\java\com\ltg\posserver\repository\jpa\SeguUsuarioRepository.java
+C:\DESARROLLO\JAVA\CODIGO\PosServer\src\main\java\com\ltg\posserver\security\WebSecurityConfig.java

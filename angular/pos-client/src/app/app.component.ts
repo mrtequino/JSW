@@ -57,7 +57,6 @@ export class AppComponent {
     );
   }
 
-
   onConsultarObservableConVariable(): void {
     this.seguridadService.usuariosGetAll3().subscribe(
       data => {
@@ -72,6 +71,18 @@ export class AppComponent {
 
   onConsultarPromise(): void {
     this.seguridadService.usuariosGetAll2().then(
+      data => {
+        console.log(data);
+        this.usuarios = data._embedded.usuarios;
+      },
+      error => {
+        window.alert(JSON.stringify(error));
+      }
+    );
+  }
+
+  onConsultarSinToken (): void {
+    this.seguridadService.usuariosGetAllSinToken().subscribe(
       data => {
         console.log(data);
         this.usuarios = data._embedded.usuarios;

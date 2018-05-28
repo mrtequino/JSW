@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, of, pipe, Subscription, observable } from "rxjs";
 import {
@@ -13,15 +13,21 @@ import {
   mergeMap
 } from "rxjs/operators";
 import { LocalStorage } from "@ngx-pwa/local-storage";
+import { ApplicationHttpClient } from "../security/application-http-client";
 
 @Injectable({
   providedIn: "root"
 })
-export class SeguridadService {
+export class SeguridadService implements OnInit {
+  url: String = "http://192.168.1.53:8081/";
   constructor(
     private httpClient: HttpClient,
     protected localStorage: LocalStorage
   ) {}
+
+  ngOnInit() {
+    this.url = "http://192.168.1.53:8081/";
+  }
 
   ingresar(username: String, password: String): Observable<any> {
     let usuario = { username: username, password: password };
@@ -46,10 +52,14 @@ export class SeguridadService {
     );
   }
 
+  usuariosGetAllSinToken(): Observable<any> {
+    return this.httpClient.get(this.url + "/usuarios");
+  }
+
   usuariosGetAll3(): Observable<any> {
     let token = "";
     return this.localStorage.getItem("token").pipe(
-      tap(data=>token=data),
+      tap(data => (token = data)),
       mergeMap(data => {
         return this.httpClient.get("http://192.168.1.53:8081/usuarios", {
           headers: new HttpHeaders().set("authorization", token)
@@ -67,7 +77,6 @@ export class SeguridadService {
       })
     );
   }
-
 
   usuariosGetAll2(): Promise<any> {
     return this.localStorage
