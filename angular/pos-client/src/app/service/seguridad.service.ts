@@ -19,7 +19,7 @@ import { ApplicationHttpClient } from "../security/application-http-client";
   providedIn: "root"
 })
 export class SeguridadService implements OnInit {
-  url: String = "http://192.168.1.53:8081/";
+  url: String = "http://192.168.1.53:8081";
   constructor(
     private httpClient: HttpClient,
     protected localStorage: LocalStorage
@@ -54,6 +54,12 @@ export class SeguridadService implements OnInit {
 
   usuariosGetAllSinToken(): Observable<any> {
     return this.httpClient.get(this.url + "/usuarios");
+  }
+
+  getStreamPrueba(): Observable<any> {
+    return this.httpClient.get("http://192.168.1.53:3000/datos", {
+      responseType: "json"
+    });
   }
 
   usuariosGetAll3(): Observable<any> {

@@ -10,6 +10,7 @@ const {
   timer
 } = require("rxjs");
 const {
+  fromArray,
   concat,
   filter,
   switchMap,
@@ -20,22 +21,15 @@ const {
   last,
   tap,
   scan,
-  flatMap
+  flatMap,
+  concatAll,
+  delay
 } = require("rxjs/operators");
 
-const source = range(1, 100000);
-// basic scan example, sum over time starting with zero
-const example = source.pipe(map(data => data));
-// log accumulated values
-// output: 1,3,6
-console.log("iniciado directo");
-setTimeout(_ => console.log("iniciado setTimeout"));
-
-example.subscribe(
-  value => setTimeout(_ => console.log(value)),
-  error => console.log(error),
-  () => setTimeout(_ => console.log("completo interno"))
-);
-
-console.log('terminado directo')
-setTimeout(_ => console.log('terminado con setTimeout'));
+var delayedStream =
+  range(1, 10)
+  .pipe(
+    map(function (value) {
+      return of(value).pipe(delay(2000));
+    }));
+delayedStream.subscribe(val => console.log(val));

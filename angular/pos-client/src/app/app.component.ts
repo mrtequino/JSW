@@ -11,6 +11,7 @@ export class AppComponent {
   username: String = "";
   password: String = "";
   usuarios = [];
+  stream1: String;
 
   constructor(
     private seguridadService: SeguridadService,
@@ -81,11 +82,23 @@ export class AppComponent {
     );
   }
 
-  onConsultarSinToken (): void {
+  onConsultarSinToken(): void {
     this.seguridadService.usuariosGetAllSinToken().subscribe(
       data => {
         console.log(data);
         this.usuarios = data._embedded.usuarios;
+      },
+      error => {
+        window.alert(JSON.stringify(error));
+      }
+    );
+  }
+
+  onConsultarStream(): void {
+    this.seguridadService.getStreamPrueba().subscribe(
+      data => {
+        //console.log(data);
+        this.stream1 = data.valor;
       },
       error => {
         window.alert(JSON.stringify(error));

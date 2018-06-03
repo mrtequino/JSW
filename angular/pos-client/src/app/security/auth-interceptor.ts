@@ -22,18 +22,19 @@ export class AuthInterceptor implements HttpInterceptor {
 
     // Clone the request and replace the original headers with
     // cloned headers, updated with the authorization.
-
-    //if (req.url == "http://192.168.1.53:8081/") {
-    return this.localStorage.getItem("token").pipe(
-      mergeMap(authToken => {
-        const authReqToken: HttpRequest<any> = req.clone({
-          headers: req.headers.set("Authorization", authToken)
-        });
-        // send cloned request with header to the next handler.
-        return next.handle(authReqToken);
-      })
-    );
-    //}
-    //return next.handle(authReq);
+    if (req.url.startsWith("http://192.168.1.53:8081")) {
+      return this.localStorage.getItem("token").pipe(
+        mergeMap(authToken => {
+          const authReqToken: HttpRequest<any> = req.clone({
+            headers: req.headers.set("Authorization", authToken)
+          });
+          // send cloned request with header to the next handler.
+          return next.handle(authReqToken);
+        })
+      );
+    } else {
+      const authReqToken: HttpRequest<any> = req.clone();
+      return next.handle(authReqToken);
+    }
   }
 }
