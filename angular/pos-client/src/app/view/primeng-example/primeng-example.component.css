@@ -1,0 +1,9 @@
+.titulo {
+    color: red!important;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.sombreado {
+    box-shadow: 5px 5px 5px black;
+}

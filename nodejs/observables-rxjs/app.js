@@ -10,6 +10,9 @@ var corsUnprotection = require('./security/cors-unprotection');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+//inicialización del pool de la base de datos
+var oracleDS = require('./ds/oracle-ds');
+
 var app = express();
 
 // view engine setup
@@ -29,6 +32,10 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//inicio el pool de la base de datos
+oracleDS.iniciarPool();
+
+//inicio las rutas de consulta del API
 app.use('/', index);
 app.use('/users', users);
 

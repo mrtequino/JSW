@@ -1,0 +1,22 @@
+<ul>
+  <li *ngFor="let item of lista">
+    {{item.author}}
+  </li>
+</ul>
+
+<button (click)="agregarLibro()">Agregar Libro</button>
+
+<hr />
+
+<a [routerLink]="[{ outlets: { primary: ['prueba'],sidebar: ['prueba'], sidebar1: ['prueba'] } }]">
+  Prueba
+</a>
+
+<hr />
+<router-outlet #routerOutlet="outlet"></router-outlet>
+<hr />
+<router-outlet name="sidebar"></router-outlet>
+<hr />
+<hr />
+<router-outlet name="sidebar1"></router-outlet>
+<hr />

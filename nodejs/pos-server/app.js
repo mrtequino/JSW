@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(corsUnprotection);
 
 //configuración de filtro de seguridad en rutas
-//app.use("/api/**", protection);
+app.use("/api/**", protection);
 
 //ruta de autencticación
 app.use("/authentication", authentication);

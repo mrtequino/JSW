@@ -1,0 +1,45 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Interface LTG Sap Business One</span>
+    </mat-toolbar>
+    <div class="row">
+      <div class="col-xs-6 col-lg-1">
+        <div class="box">prueba</div>
+      </div>
+      <div class="col-xs-6 col-lg-1">
+        <div class="box">prueba1</div>
+      </div>
+      <div class="col-xs-6 col-lg-1">
+        <button mat-button>Click me!</button>
+        <button mat-mini-fab class="aumentar">
+            <mat-icon class="aumentar" aria-label="Example icon-button with a heart icon">save</mat-icon>
+          </button>
+      </div>
+    </div>
+
+    <div class="p-grid">
+      <div class="p-col-6">
+        <button pButton type="button" label="Click"></button>
+      </div>
+      <div class="p-col-6">
+        <p-button label="Click"></p-button>
+      </div>
+      <div class="p-col-12">
+        <p-calendar></p-calendar>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

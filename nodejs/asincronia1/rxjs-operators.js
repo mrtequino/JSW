@@ -3,11 +3,12 @@ const {
   Subject,
   ReplaySubject,
   from,
-  of ,
+  of,
   range,
   interval,
   combineLatest,
-  timer
+  timer,
+  forkJoin
 } = require("rxjs");
 const {
   fromArray,
@@ -23,13 +24,62 @@ const {
   scan,
   flatMap,
   concatAll,
-  delay
+  delay,
+  mergeMap,
+  mergeAll
 } = require("rxjs/operators");
 
-var delayedStream =
-  range(1, 10)
-  .pipe(
-    map(function (value) {
-      return of(value).pipe(delay(2000));
-    }));
-delayedStream.subscribe(val => console.log(val));
+var callstack = require("callstack");
+
+var array = [1, 2, 3];
+
+var colocarValorCallback = (val, arr, callback) => {
+  setTimeout(_ => {
+    arr.push(val);
+    callback(arr);
+  }, 1000 * 1);
+};
+
+var colocarValorPromise1 = (val, arr) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(_ => {
+      arr.push(val);
+      resolve(arr);
+    }, 1000 * 2);
+  });
+};
+
+var colocarValorPromise2 = (val, arr) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(_ => {
+      arr.push(val);
+      resolve(arr);
+    }, 1000 * 3);
+  });
+};
+
+var colocarValorPromise3 = (val, arr) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(_ => {
+      arr.push(val);
+      resolve(arr);
+    }, 1000 * 3);
+  });
+};
+
+
+
+colocarValorCallback(4, array, val => console.log(val));
+
+colocarValorPromise1(5, array)
+  .then(a => a, err => console.log(err))
+  .then(b => b)
+  .then(c => console.log(c));
+
+var llamarAync = async () => {
+  await colocarValorPromise2(6, array);
+  console.log(array);
+};
+llamarAync();
+
+from(colocarValorPromise3(7, array)).subscribe(a => console.log(a));

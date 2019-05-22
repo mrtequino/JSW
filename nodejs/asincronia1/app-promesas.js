@@ -12,13 +12,13 @@ var port = 3000;
 process.env.UV_THREADPOOL_SIZE = 100;
 
 app.get("/", async (req, res, next) => {
-    res.setHeader('Content-Type', 'application/json');
-    codb.probar(req, res, next);
+  res.setHeader('Content-Type', 'application/json');
+  codb.probar(req, res, next);
 });
 
-app.use(function (err, req, res, next) {
-    console.log(err);
-    res.status(500).send(err + "");
+app.use(function(err, req, res, next) {
+  console.log(err);
+  res.status(500).send(err + "");
 });
 
 // escuchar

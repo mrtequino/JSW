@@ -1,0 +1,36 @@
+<!--fixedInViewport="true"-->
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)" fixedInViewport="true">
+    <mat-toolbar color="primary">Menú</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/primeng" routerLinkActive="active">PrimeNG showcase</a>
+      <a mat-list-item routerLink="/angular-material" routerLinkActive="active">Angular Material showcase</a>
+      <a mat-list-item routerLink="/w3css" routerLinkActive="active">W3.CSS showcase</a>
+      <a mat-list-item routerLink="/materialize" routerLinkActive="active">Materialize showcase</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="toolbar">
+      <div class="ui-g">
+        <div class="ui-g-2 ui-lg-1 ui-g-nopad">
+          <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+        </div>
+        <div class="ui-g-9 ui-lg-10 ui-g-nopad">
+          Material Design showcase
+        </div>
+        <div class="ui-g-1 ui-lg-1 ui-g-nopad alinear-derecha">
+          <button type="button" aria-label="Toggle sidenav" mat-icon-button>
+            <mat-icon aria-label="Side nav toggle icon">more_vert</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet>
+    </router-outlet>
+    <app-main-footer></app-main-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,6 +1,11 @@
-import { Component } from "@angular/core";
+import { Component, Inject } from "@angular/core";
 import { SeguridadService } from "./service/seguridad.service";
 import { LocalStorage } from "@ngx-pwa/local-storage";
+import { MessageService } from "./service/message.service";
+
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
+
+import { DialogOverviewExampleDialogComponent } from "./dialog-overview-example-dialog/dialog-overview-example-dialog.component";
 
 @Component({
   selector: "app-root",
@@ -8,101 +13,22 @@ import { LocalStorage } from "@ngx-pwa/local-storage";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  username: String = "";
-  password: String = "";
-  usuarios = [];
-  stream1: String;
+  animal: string;
+  name: string;
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialogComponent, {
+      width: "250px",
+      data: { name: this.name, animal: this.animal }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("The dialog was closed");
+      this.animal = result;
+    });
+  }
 
   constructor(
-    private seguridadService: SeguridadService,
-    protected localStorage: LocalStorage
+    public dialog: MatDialog
   ) {}
-
-  onIngresar(): void {
-    this.seguridadService.ingresar(this.username, this.password).subscribe(
-      data => {
-        this.localStorage.getItem("token").subscribe(data => {
-          //if (!data) {}
-          window.alert(JSON.stringify(data));
-        });
-      },
-      error => {
-        window.alert(error);
-      }
-    );
-  }
-
-  onConsultar(): void {
-    this.seguridadService.usuariosGetAll().subscribe(
-      data => {
-        data.subscribe(data => {
-          console.log(data);
-          this.usuarios = data._embedded.usuarios;
-        });
-      },
-      error => {
-        window.alert(JSON.stringify(error));
-      }
-    );
-  }
-
-  onConsultarObservable(): void {
-    this.seguridadService.usuariosGetAll1().subscribe(
-      data => {
-        console.log(data);
-        this.usuarios = data._embedded.usuarios;
-      },
-      error => {
-        window.alert(JSON.stringify(error));
-      }
-    );
-  }
-
-  onConsultarObservableConVariable(): void {
-    this.seguridadService.usuariosGetAll3().subscribe(
-      data => {
-        console.log(data);
-        this.usuarios = data._embedded.usuarios;
-      },
-      error => {
-        window.alert(JSON.stringify(error));
-      }
-    );
-  }
-
-  onConsultarPromise(): void {
-    this.seguridadService.usuariosGetAll2().then(
-      data => {
-        console.log(data);
-        this.usuarios = data._embedded.usuarios;
-      },
-      error => {
-        window.alert(JSON.stringify(error));
-      }
-    );
-  }
-
-  onConsultarSinToken(): void {
-    this.seguridadService.usuariosGetAllSinToken().subscribe(
-      data => {
-        console.log(data);
-        this.usuarios = data._embedded.usuarios;
-      },
-      error => {
-        window.alert(JSON.stringify(error));
-      }
-    );
-  }
-
-  onConsultarStream(): void {
-    this.seguridadService.getStreamPrueba().subscribe(
-      data => {
-        //console.log(data);
-        this.stream1 = data.valor;
-      },
-      error => {
-        window.alert(JSON.stringify(error));
-      }
-    );
-  }
 }

@@ -1,6 +1,13 @@
 import { Injectable, OnInit } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable, of, pipe, Subscription, observable } from "rxjs";
+import {
+  Observable,
+  of,
+  pipe,
+  Subscription,
+  observable,
+  throwError
+} from "rxjs";
 import {
   map,
   tap,
@@ -14,6 +21,7 @@ import {
 } from "rxjs/operators";
 import { LocalStorage } from "@ngx-pwa/local-storage";
 import { ApplicationHttpClient } from "../security/application-http-client";
+import { MessageService } from "./message.service";
 
 @Injectable({
   providedIn: "root"
@@ -22,7 +30,8 @@ export class SeguridadService implements OnInit {
   url: String = "http://192.168.1.53:8081";
   constructor(
     private httpClient: HttpClient,
-    protected localStorage: LocalStorage
+    protected localStorage: LocalStorage,
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {
@@ -35,9 +44,15 @@ export class SeguridadService implements OnInit {
       .post("http://192.168.1.53:8081/login", usuario, { observe: "response" })
       .pipe(
         tap(data => {
+          if (!data) throwError("no hay datos de retorno");
           this.localStorage
             .setItem("token", data.headers.get("authorization"))
             .subscribe();
+          this.messageService.messages.push("Correcto");
+        }),
+        catchError(x => {
+          this.messageService.messages.push(x.message);
+          return of(this.messageService.messages);
         })
       );
   }

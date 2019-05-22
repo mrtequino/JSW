@@ -1,0 +1,10 @@
+<ActionBar>
+    <ActionBar title="Getting Started"></ActionBar>
+</ActionBar>
+
+<StackLayout verticalAlignment="middle">
+    <Button text="Sumar" (tap)="onTap($event)" (click)="onClick($event)" class="btn btn-primary btn-active"></Button>
+    <Button text="Restar" (tap)="onClick($event)" (click)="onClick($event)" class="btn btn-primary btn-active"></Button>
+
+    <Label id="lbl" text="{{this.count}}" textWrap="true"></Label>
+</StackLayout>

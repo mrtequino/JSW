@@ -1,0 +1,13 @@
+$color: red;
+
+
+@mixin tamano-letra($tamano){
+    background-color: black;
+    font-size: $tamano;
+}
+
+.mi-estilo{
+    color: $color;
+    @include tamano-letra(14px);
+}
+
